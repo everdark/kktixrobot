@@ -1,0 +1,9 @@
+[ticket]
+url = http://infinityjapan.kktix.cc/events/infinityjapan0226
+ticket-wanted = 3,4
+number-wanted = 1,1
+
+[person]
+p0 = fullname,contact@email,1234567890
+p1 = fullname,contact@email,1234567890
+p2 = fullname,contact@email,1234567890
