@@ -57,7 +57,8 @@ pinfo = [ p[1].split(',') for p in person_info ]
 for f, v in zip(form, [ p for subl in pinfo for p in subl ]):
     f.send_keys(v)
 
-btn_confirm = driver.find_element_by_link_text("Confirm Form")
+# confirm form
+btn_confirm = driver.find_element_by_css_selector("a.btn.btn-primary.btn-lg")
 # btn_confirm.click()
 
 
