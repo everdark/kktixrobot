@@ -17,12 +17,18 @@ for sec in ["ticket-wanted", "number-wanted"]:
 assert sum(buying_info["number-wanted"]) + 1 == len(person_info)
 landing_url = buying_info["url"]
 
-# do landing
+# landing
 driver = webdriver.Chrome()
 wait = WebDriverWait(driver, 10)
 driver.get(landing_url)
-btn_reserve = driver.find_element_by_link_text("Reserve Now")
-btn_reserve.click()
+
+# click the right button for ticket reservation
+    # the button seems to be one of class "btn-point" or "btn-ticket"
+    # but the urls always give the same trailing path
+all_hrefs = driver.find_elements_by_xpath("//*[@href]")
+all_links = [ link.get_attribute("href") for link in all_hrefs ]
+link_for_reserve = [ x for x in all_links if "/registrations/new" in x ][0]
+driver.get(link_for_reserve)
 
 # handle pop-up for non-member user
 popup = wait.until(EC.presence_of_element_located((By.ID, "guestModalLabel")))
