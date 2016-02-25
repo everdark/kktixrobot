@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # read and check config
 config = ConfigParser.ConfigParser()
-config.read(["./info"])
+config.read(["./info.ini"])
 person_info = config.items("person")
 buying_info = dict(config.items("ticket"))
 for sec in ["ticket-wanted", "number-wanted"]:
